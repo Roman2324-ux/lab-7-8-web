@@ -8,18 +8,18 @@ export default function InventoryCard({ item, isFav, onToggleFav, onClick }) {
       className="group relative card cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
       onClick={() => onClick(item)}
     >
-      <div className="aspect-square overflow-hidden bg-cloud relative">
-        <img
-          src={inventoryApi.getPhotoUrl(id)}
-          alt={item.inventory_name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={e => {
-            e.target.style.display = 'none';
-            e.target.parentNode.innerHTML += '<div class="absolute inset-0 flex items-center justify-center text-5xl">📦</div>';
-          }}
-        />
-        <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/20 transition-colors duration-300" />
-      </div>
+      <div className="aspect-square overflow-hidden bg-cloud-dark relative">
+       <img
+       src={inventoryApi.getPhotoUrl(id)}
+       alt={item.inventory_name}
+       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 p-2"
+       onError={e => {
+         e.target.style.display = 'none';
+         e.target.parentNode.innerHTML += '<div class="absolute inset-0 flex items-center justify-center text-5xl">📦</div>';
+      }}
+    />
+     <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/20 transition-colors duration-300" />
+   </div>
 
       <button
         onClick={e => { e.stopPropagation(); onToggleFav(id); }}

@@ -58,18 +58,18 @@ export default function InventoryQuickView({ item, isFav, onToggleFav, onClose }
         </div>
 
         <div className="flex-1 p-6 space-y-6">
-          <div className="rounded-2xl overflow-hidden bg-white border border-cloud-dark shadow-sm aspect-video">
+          <div className="rounded-2xl overflow-hidden bg-cloud-dark border border-cloud-dark shadow-sm">
             {loading ? (
-              <div className="skeleton w-full h-full" />
+             <div className="skeleton w-full h-48" />
             ) : (
               <img
-                src={inventoryApi.getPhotoUrl(id)}
-                alt={data.inventory_name}
-                className="w-full h-full object-cover"
-                onError={e => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="flex items-center justify-center h-full text-7xl">📦</div>'; }}
+               src={inventoryApi.getPhotoUrl(id)}
+               alt={data.inventory_name}
+                className="w-full max-h-[320px] object-contain p-3"
+                onError={e => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="flex items-center justify-center h-48 text-7xl">📦</div>'; }}
               />
             )}
-          </div>
+            </div>
 
           <div className="bg-white rounded-xl p-5 border border-cloud-dark">
             <h3 className="text-xs font-mono uppercase tracking-widest text-midnight/40 mb-2">Опис</h3>

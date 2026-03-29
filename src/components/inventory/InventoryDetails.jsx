@@ -35,13 +35,13 @@ export default function InventoryDetails() {
   return (
     <div className="max-w-2xl mx-auto p-6 animate-fade-in">
       <div className="card">
-        <div className="aspect-video bg-cloud overflow-hidden">
-          <img
-            src={inventoryApi.getPhotoUrl(id)}
-            alt={item.inventory_name}
-            className="w-full h-full object-cover"
-            onError={e => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="flex items-center justify-center h-full text-6xl">📦</div>'; }}
-          />
+        <div className="bg-cloud-dark overflow-hidden rounded-t-2xl">
+         <img
+           src={inventoryApi.getPhotoUrl(id)}
+           alt={item.inventory_name}
+            className="w-full max-h-[400px] object-contain"
+            onError={e => { e.target.style.display='none'; e.target.parentNode.innerHTML='<div class="flex items-center justify-center h-48 text-6xl">📦</div>'; }}
+         />
         </div>
         <div className="p-6">
           <h1 className="font-serif text-2xl font-bold text-midnight mb-3">{item.inventory_name}</h1>
